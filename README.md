@@ -1,4 +1,4 @@
-# Educaonca
+# EducaOnça
 Aplicação mobile para download de materiais e aulas remotas, no contexto da Ilha das Onças, Belém - PA.
 
 ## Mobile
