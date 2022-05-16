@@ -11,6 +11,7 @@ function App() {
         </p>
       </header>
       <form className="Login-area" id="Login-form">
+        <h2 id="Login-titulo">Entrar</h2>
         <label for="Login-username">Usuário</label>
         <input
           className="Login-input"

@@ -4,9 +4,9 @@ import './Layout.css'
 export default function App() {
   return (
     <div>
-      <div class="topnav">
-        <Link to="#"><i>Educa</i><b>Onça</b></Link>
-        <Link to="/">Sair</Link>
+      <div className="Layout-topnav">
+        <Link className="Layout-title" to="/log/inicial"><i>Educa</i><b>Onça</b></Link>
+        <Link className="Layout-logout"to="/">Sair</Link>
       </div>
       <Outlet />
     </div>

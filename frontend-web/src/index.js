@@ -9,6 +9,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Inicial from './routes/inicial';
 import Layout from './routes/layout';
+import Enviado from './routes/enviado';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -17,7 +18,8 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="/log/" element={<Layout />}>
         <Route path="inicial" element={<Inicial />} />
-        </Route>
+        <Route path="enviado" element={<Enviado />} />
+      </Route>
     </Routes>
   </BrowserRouter>
 );

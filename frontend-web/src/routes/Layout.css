@@ -1,13 +1,15 @@
 /* Add a black background color to the top navigation */
-.topnav {
+.Layout-topnav {
   background-color: #004358;
   overflow: hidden;
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 85%;
 }
 
 /* Style the links inside the navigation bar */
-.topnav a {
+.Layout-topnav a {
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -18,13 +20,23 @@
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
+.Layout-topnav a:hover {
   background-color: #ddd;
   color: black;
 }
 
 /* Add a color to the active/current link */
-.topnav a.active {
+.Layout-topnav a.active {
   background-color: #04AA6D;
   color: white;
+}
+
+.Layout-title {
+  font-size: 26px !important;
+  letter-spacing: 1px !important;
+}
+
+.Layout-logout {
+  position: relative;
+  left: -3em;
 }
