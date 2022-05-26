@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { Link } from "react-router-dom";
+import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 
 export const Conteudo = styled.main `
   padding-left: 20px;
@@ -95,13 +96,11 @@ p {
 export const NovaAula = () => {
   return (
     <Conteudo>
-
+      <CloudinaryUploadWidget/>
       <form className="Upload-screen" method="post" action="#">
+        
         <div className="Upload-buttons">
           <h1 className="Upload-title">Enviar Vídeo</h1>
-            <label htmlFor="upload-video" className='Upload-primary'>
-              Anexar Vídeo
-            </label>
             <input  type="file" hidden id='upload-video'/>
 
             <label htmlFor="upload-material" className="Upload-secondary">
