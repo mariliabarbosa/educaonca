@@ -3,6 +3,59 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 
+export const NovaAula = () => {
+  return (
+    <Conteudo>
+      <form className="Upload-screen" method="post" action="#">
+        
+        <div className="Upload-buttons">
+          <h1 className="Upload-title">Enviar Vídeo</h1>
+            <input  type="file" hidden id='upload-video'/>
+            
+            <CloudinaryUploadWidget/>
+
+            <label htmlFor="upload-material" className="Upload-secondary">
+              Anexar Materiais
+            </label>
+            <input  type="file" hidden id='upload-material'/>
+        </div>
+      <div className="Upload-details" >
+        <label htmlFor="Upload-title">Título</label>
+        <input
+          className="Upload-input"
+          name="Upload-title"
+          />
+          <br/>
+
+        <label htmlFor='upload-turmas'>Turma</label>
+        <select name="upload-turmas" className="Upload-input" id="cars">
+          <option value="">-</option>
+          <option value="mat6">Matemática 6º Ano</option>
+          <option value="mat7">Matemática 7º Ano</option>
+          <option value="mat8">Matemática 8º Ano</option>
+        </select>
+          <label htmlFor="Upload-descricao">Descrição</label>
+        <textarea
+          className="Upload-input"
+          name="Upload-descricao"
+          />
+          <br/>
+          <Link to="/turmas">
+            <button 
+              form="Upload-details"
+              className="Upload-submit"
+              type="submit"
+              >
+              Enviar
+            </button>
+          </Link>
+      </div>
+      </form>
+      
+    </Conteudo>
+  );
+}
+
 export const Conteudo = styled.main `
   padding-left: 20px;
 .Upload-screen {
@@ -10,7 +63,7 @@ export const Conteudo = styled.main `
   flex-direction: row;
   justify-content: space-around;
 }
-.Upload-title {
+.Upload-title { 
   font-weight: 400;
 }
 .Upload-buttons {
@@ -22,7 +75,7 @@ export const Conteudo = styled.main `
   text-align: center;
 }
 
-.Upload-primary {
+.cloudinary-button {
   max-height: calc(30vh);
   min-height: calc(20vh);
   font-size: calc(5vh);
@@ -31,10 +84,6 @@ export const Conteudo = styled.main `
   background-color: #004358;
   color: white;
   margin: 20px 0;
-}
-
-.Upload-primary:active {
-  background-color: red;
 }
 
 .Upload-secondary {
@@ -92,55 +141,3 @@ p {
   white-space: pre-wrap;
 }
 `
-
-export const NovaAula = () => {
-  return (
-    <Conteudo>
-      <CloudinaryUploadWidget/>
-      <form className="Upload-screen" method="post" action="#">
-        
-        <div className="Upload-buttons">
-          <h1 className="Upload-title">Enviar Vídeo</h1>
-            <input  type="file" hidden id='upload-video'/>
-
-            <label htmlFor="upload-material" className="Upload-secondary">
-              Anexar Materiais
-            </label>
-            <input  type="file" hidden id='upload-material'/>
-        </div>
-      <div className="Upload-details" >
-        <label htmlFor="Upload-title">Título</label>
-        <input
-          className="Upload-input"
-          name="Upload-title"
-          />
-          <br/>
-
-        <label htmlFor='upload-turmas'>Turma</label>
-        <select name="upload-turmas" className="Upload-input" id="cars">
-          <option value="">-</option>
-          <option value="mat6">Matemática 6º Ano</option>
-          <option value="mat7">Matemática 7º Ano</option>
-          <option value="mat8">Matemática 8º Ano</option>
-        </select>
-          <label htmlFor="Upload-descricao">Descrição</label>
-        <textarea
-          className="Upload-input"
-          name="Upload-descricao"
-          />
-          <br/>
-          <Link to="/turmas">
-            <button 
-              form="Upload-details"
-              className="Upload-submit"
-              type="submit"
-              >
-              Enviar
-            </button>
-          </Link>
-      </div>
-      </form>
-      
-    </Conteudo>
-  );
-}
