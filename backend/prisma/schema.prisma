@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Class {
+  id String @id @default(uuid()) 
+  name String
+  students Student?
+  teacher_class TeacherClass?
+  lesson Lesson?
+}
+
+model Student {
+  id String @id @default(uuid()) 
+  name String
+  register_number Int @unique
+  password String 
+  gender String @db.VarChar(1)
+  class Class @relation(fields: [class_id], references: [id])
+  class_id String @unique
+  downloaded_lesson DownloadedLesson?
+}
+
+model Teacher {
+  id String @id @default(uuid()) 
+  name String
+  email Int @unique
+  password String 
+  gender String @db.VarChar(1)
+  teacher_class TeacherClass?
+  lesson Lesson?
+}
+
+model TeacherClass {
+  id String @id @default(uuid()) 
+  teacher Teacher @relation(fields: [teacher_id], references: [id])
+  class Class @relation(fields: [class_id], references: [id])
+  teacher_id String
+  class_id String
+}
+
+model Lesson {
+  id String @id @default(uuid()) 
+  name String
+  description String @db.Text
+  video String
+  teacher Teacher @relation(fields: [teacher_id], references: [id])
+  teacher_id String
+  class Class @relation(fields: [class_id], references: [id])
+  class_id String
+  subject String
+  expires_in Int @default(7)
+  downloaded_lesson DownloadedLesson?
+}
+
+model DownloadedLesson {
+  id String @id @default(uuid()) 
+  student Student @relation(fields: [student_id], references: [id])
+  student_id String
+  lesson Lesson @relation(fields: [lesson_id], references: [id])
+  lesson_id String
+  created_at DateTime @default(now())
+}
