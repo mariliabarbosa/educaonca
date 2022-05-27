@@ -6,14 +6,13 @@ import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 export const NovaAula = () => {
   return (
     <Conteudo>
+      <h1 className="Upload-title">Enviar Vídeo</h1>
+
+      <CloudinaryUploadWidget/>
       <form className="Upload-screen" method="post" action="#">
         
         <div className="Upload-buttons">
-          <h1 className="Upload-title">Enviar Vídeo</h1>
             <input  type="file" hidden id='upload-video'/>
-            
-            <CloudinaryUploadWidget/>
-
             <label htmlFor="upload-material" className="Upload-secondary">
               Anexar Materiais
             </label>
@@ -78,12 +77,14 @@ export const Conteudo = styled.main `
 .cloudinary-button {
   max-height: calc(30vh);
   min-height: calc(20vh);
+  width: 575px;
   font-size: calc(5vh);
   border-radius: 5px;
   border: 0;
   background-color: #004358;
   color: white;
   margin: 20px 0;
+  margin-left: 75px;
 }
 
 .Upload-secondary {
@@ -108,6 +109,7 @@ background-color: red;
   flex-direction: column;
   padding: 20vh 10vw 0 10vw;
   align-items: center;
+  margin-top: -400px;
 }
 
 .Upload-input {
